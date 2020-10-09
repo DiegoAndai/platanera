@@ -5,9 +5,16 @@ import Button from './Button';
 import SpacedText from './SpacedText';
 import { TextInput, StyleSheet } from 'react-native';
 
+import { actions as bananasActions } from './store/bananas/slice';
+
 export default function Home({ nextState }) {
+  const dispatch = useDispatch();
   const [harvester, setHarvester] = useState('');
-  const bananaCount = useSelector(state => state.bananas.count);
+
+  function harvest() {
+    dispatch(bananasActions.harvestBanana({ harvester }));
+    nextState();
+  }
 
   return (
     <Container>
