@@ -3,7 +3,7 @@ import api from '../../../api';
 
 import { actions as bananaActions } from '../slice';
 
-function *harvestBanana({ payload }) {
+export function *harvestBanana({ payload }) {
   const { harvester } = payload;
   yield put(bananaActions.harvestStart());
   try {
